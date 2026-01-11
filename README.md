@@ -103,8 +103,8 @@ For a production-scale system with millions of records, indexing or a database-b
 
 ##  What I Would Improve With More Time
 
+* **API parameters**:  add more parameter that can request from front-end such as add pagination support and input validation limits and more parameter like country 
 * **Caching strategy**:  change from normal in memory cache to use library (eg.node-cache) for support up scaling
 * **Configuration**: make dataset source and cache behavior configurable via environment variables.
 * **Observability**: add structured logging and basic metrics for request latency and cache load time.
-* **API parameters**:  add more parameter that can request from front-end such as add pagination support and input validation limits and more parameter like country 
 
