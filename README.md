@@ -50,7 +50,7 @@ GET /home
 ```bash
 npm test
 ```
-This runs both unit and integration tests.
+This integration tests.
 
 ##  API Design
 
@@ -103,8 +103,8 @@ For a production-scale system with millions of records, indexing or a database-b
 
 ##  What I Would Improve With More Time
 
-* **Search performance**: introduce indexing or prefix-based lookup if the dataset grows to hundreds of thousands or millions of records.
-* **Caching strategy**: add TTL-based cache refresh or persistent on-disk cache to speed up restarts.
+* **Caching strategy**:  change from normal in memory cache to use library (eg.node-cache) for support up scaling
 * **Configuration**: make dataset source and cache behavior configurable via environment variables.
 * **Observability**: add structured logging and basic metrics for request latency and cache load time.
-* **API robustness**: add pagination support and input validation limits.
+* **API parameters**:  add more parameter that can request from front-end such as add pagination support and input validation limits and more parameter like country 
+

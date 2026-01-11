@@ -7,7 +7,7 @@ app.use(express.json());
 app.use("/cities", citiesRouter);
 
 app.get("/home", (req: Request, res: Response) => {
-    res.json({ status: "ok" });
+	res.json({ status: "ok" });
 });
 
 export default app;
