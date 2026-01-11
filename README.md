@@ -1,0 +1,118 @@
+# Tech Test Assignment
+## Cities search 
+
+
+## Basic Features
+
+* Cache the dataset **in memory** to avoid re-downloading or re-parsing on each request
+* Search cities by name
+* Return maximum 10 result per request
+* REST API with clear response schema
+---
+
+## Technologies Used
+- Node.js
+- TypeScript
+- Express
+- Axios (dataset download)
+- Jest + Supertest (testing)
+
+---
+
+## Prerequisites
+1. require node version 22.5.1
+2. npm: v10.8.2
+
+---
+
+## Getting Started
+To run this project locally, follow these steps:
+1. Clone the repository.
+2. Install Dependencies
+
+```bash
+npm install
+```
+3.Start Development Server
+
+```bash
+npm run dev
+```
+
+Server will start at:
+
+```
+http://localhost:5001
+```
+4 Check Sever is running
+
+```
+GET /home
+```
+---
+
+5 Check Sever is running
+
+```bash
+npm test
+```
+
+##  API Design
+
+### Endpoint
+
+```
+GET /cities/search?name=<query>
+```
+
+### Query Parameters
+
+| Name | Type   | Required | Description                 |
+| ---- | ------ | -------- | --------------------------- |
+| name | string | yes      | Search string for city name |
+
+### Response (200 OK)
+
+```json
+[
+  {
+    "name": "Bangkok",
+    "country": "TH",
+    "population": 8281000
+  }
+]
+```
+
+### Notes on Population
+
+* If `population` is missing in the dataset, the API returns `0`.
+* This keeps the response schema consistent and simplifies client-side handling.
+
+### Error Response (400)
+
+```json
+{
+  "error": "Missing query parameter 'name'"
+}
+```
+---
+
+##  Key Design Decisions & Trade-offs
+
+* Separated `app.ts` and `server.ts` to improve testability and separation of concerns.
+* **In-memory caching** chosen over database or external cache to avoid unnecessary complexity.
+* Simple linear search is sufficient due to small dataset size.
+
+For a production-scale system with millions of records, indexing or a database-backed approach would be considered.
+
+---
+
+## 🔮 What I Would Improve With More Time
+
+* **Search performance**: introduce indexing or prefix-based lookup if the dataset grows to hundreds of thousands or millions of records.
+* **Caching strategy**: add TTL-based cache refresh or persistent on-disk cache to speed up restarts.
+* **Configuration**: make dataset source and cache behavior configurable via environment variables.
+* **Observability**: add structured logging and basic metrics for request latency and cache load time.
+* **API robustness**: add pagination support and input validation limits.
+
+---
